@@ -20,19 +20,25 @@ export default function Game() {
 	}
 
 	function sortMoves() {
-		setIsAscSorting(value => !value);
+		setIsAscSorting(isAsc => !isAsc);
 	}
 
 	const displayedMoves = useMemo(() => {
 		const moves = history.slice(0, currentMove + 1).map((_, move) => {
 			const description = move > 0 ? `Go to move #${move}` : 'Go to game start';
-			return (
-				<li key={move}>
-					<button onClick={() => jumpTo(move)} disabled={move === currentMove}>
-						{description}
-					</button>
+			if (move === currentMove) {
+				return <li key={move}>
+					<p>You are on move #{move}</p>
 				</li>
-			);
+			} else {
+				return (
+					<li key={move}>
+						<button onClick={() => jumpTo(move)}>
+							{description}
+						</button>
+					</li>
+				);
+			}
 		});
 		return isAscSorting ? moves : moves.slice().reverse();
 	}, [history, currentMove, isAscSorting]);
