@@ -13,6 +13,10 @@
 	width: 34px;
 }
 
+.winner-square {
+	background-color: green !important;
+}
+
 .board-row:after {
 	clear: both;
 	content: '';

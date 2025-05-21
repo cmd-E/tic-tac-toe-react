@@ -1,4 +1,4 @@
-export default function Square({ value, onSquareClick }) {
+export default function Square({ value, onSquareClick, className }) {
 
-	return <button className="square" onClick={onSquareClick}>{value}</button>
+	return <button className={`square ${className}`} onClick={onSquareClick}>{value}</button>
 }
