@@ -12,14 +12,9 @@ function calculateWinner(squares) {
 		[2, 4, 6]
 	];
 
-	let winner = ''
-	let winnerLine = []
-
 	for (const [a, b, c] of lines) {
 		if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-			winner = squares[a];
-			winnerLine = [a, b, c]
-			return [winner, winnerLine]
+			return [squares[a], [a, b, c]]
 		}
 	}
 	return [null, []];
@@ -47,14 +42,13 @@ export default function Board({ xIsNext, currentSquares: squares, onPlay }) {
 			const squaresInRow = [];
 
 			for (let col = 0; col < 3; col++) {
-				const index = row * 3 + col;
+				const index = row * 3 + col; // calculates the amount of squares in general
+
 				squaresInRow.push(
 					<Square
-						className={winnerLine.includes(index)
-							? 'winner-square'
-							: ''}
 						key={`square-${index}`}
 						value={squares[index]}
+						isWinner={winnerLine.includes(index)}
 						onSquareClick={() => handleClick(index)}
 					/>
 				);
