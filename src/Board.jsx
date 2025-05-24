@@ -1,4 +1,5 @@
 import Square from "./Square"
+import styles from "./styles/board.module.css"
 
 function calculateWinner(squares) {
 	const lines = [
@@ -55,7 +56,7 @@ export default function Board({ xIsNext, currentSquares: squares, onPlay }) {
 			}
 
 			rows.push(
-				<div key={`row-${row}`} className="board-row">
+				<div key={`row-${row}`} className={styles.boardRow}>
 					{squaresInRow}
 				</div>
 			);
@@ -66,7 +67,7 @@ export default function Board({ xIsNext, currentSquares: squares, onPlay }) {
 
 	return (
 		<>
-			<div className="status">{status}</div>
+			<div className={styles.status}>{status}</div>
 			{renderBoard()}
 		</>
 	);

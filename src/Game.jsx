@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import Board from './Board';
+import styles from './styles/game.module.css'
 
 export default function Game() {
 	const [history, setHistory] = useState([Array(9).fill(null)]);
@@ -44,11 +45,11 @@ export default function Game() {
 	}, [history, currentMove, isAscSorting]);
 
 	return (
-		<div className="game">
-			<div className="game-board">
+		<div className={styles.game}>
+			<div className={styles.gameBoard}>
 				<Board currentSquares={currentSquares} onPlay={handlePlay} xIsNext={xIsNext} />
 			</div>
-			<div className="game-info">
+			<div className={styles.gameInfo}>
 				<p>Game info:</p>
 				<p>
 					Sorting:

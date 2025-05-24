@@ -1,8 +1,10 @@
+import styles from './styles/square.module.css'
+
 export default function Square({ value, onSquareClick, isWinner }) {
 
 	return (
 		<button
-			className={`square ${isWinner ? 'winner-square' : ''}`}
+			className={`${styles.square} ${isWinner ? styles.winnerSquare : ''}`}
 			onClick={onSquareClick}
 		>
 			{value}
