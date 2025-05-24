@@ -1,10 +1,29 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    /*getting rid of edges, and making use of full web page*/
+}
+
 .game {
     display: flex;
     flex-direction: row;
+    /*Setup for squares to be presented as a grid*/
+    height: 100vh;
+    width: 100vw;
+    /*Show the game fullscreen*/
+    justify-content: center; /* center horizontally */
+    align-items: center;     /* center vertically */
+    gap: 40px;
 }
 
 .gameInfo {
-    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical center of content */
+    /*align-items: flex-start;*/
+    /*min-width: 200px; !* or your preferred width *!*/
 }
 
 .game-board {
