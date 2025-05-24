@@ -4,6 +4,13 @@
     display: table;
 }
 
+/* Board rows */
+.boardRow {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
 .status {
     margin-bottom: 10px;
 }
